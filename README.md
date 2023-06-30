@@ -1,1 +1,2 @@
-# personal-flask-web
+临时起意，想学习一个python的web框架，选择了flask，搭建一个个人网站
+至于为什么是python，则是因为想在这个网站中集成gpt。
