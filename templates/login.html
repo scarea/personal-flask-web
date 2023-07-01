@@ -2,36 +2,71 @@
 <html>
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-    <title>login</title>
-    <link rel="stylesheet" href="../static/css/login.css">
+  <title>login</title>
+  <link rel="stylesheet" href="../static/css/login.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Welcome</h1>
-		
-        <div class="form">
-            <input type="text" placeholder="您的账号">
-            <input type="password" placeholder="您的密码">
-            <button class="btn-login">登录</button>
-        </div>
+  <div class="container">
+    <h1>Welcome</h1>
+
+    <div class="form">
+      <input type="text" id="username" placeholder="您的账号" value="awen">
+      <input type="password" id="password" placeholder="您的密码" value="123">
+      <button class="btn-login" onclick="login()">登录</button>
     </div>
-    <ul class="bg-squares">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+  </div>
+  <ul class="bg-squares">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </body>
+<script>
+  function login() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var data = {
+      username: username,
+      password: password
+    };
+     // 发送 POST 请求到后端的登录接口
+     fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(function(response) {
+        if (response.redirected) {
+          // 如果后端返回了重定向，则跳转到重定向的页面
+          window.location.href = response.url;
+        } else {
+          // 否则，根据后端返回的 JSON 数据进行处理
+          return response.json();
+        }
+      })
+      .then(function(json) {
+        // 处理后端返回的 JSON 数据
+        console.log(json);
+        // 可以根据 JSON 数据中的信息进行相应的提示或处理
+      })
+      .catch(function(error) {
+        // 处理错误
+        console.error('Error:', error);
+      });
+    };
+  </script>
 
 </html>
-
