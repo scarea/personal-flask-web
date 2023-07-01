@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>首页</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("../static/image/qing.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .navbar {
+      background: black;
+      height: 11vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0px;
+      color: white;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    .navbar ul li {
+      margin-right: 10px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar .right-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .right-content li {
+      font-size: 1.25rem;
+      margin-right: 30px;
+    }
+
+    .left-content {
+      display: flex;
+      align-items: center;
+      padding-left: 40px;
+      height: 100%;
+    }
+
+    .left-content h1 {
+      letter-spacing: 0.2rem;
+      font-size: 2.25rem;
+      background: linear-gradient(to right, red, green, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="left-content">
+      <h1>风说起就起</h1>
+    </div>
+    <ul class="right-content">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="life.html">生活</a></li>
+      <li><a href="study.html">学习</a></li>
+      <li><a href="entertainment.html">娱乐</a></li>
+      <li><a href="other.html">其他</a></li>
+      <li onclick="location.href='/login'" style="cursor: pointer;">登录</li>
+    </ul>
+  </div>
+</body>
+</html>
